@@ -9,30 +9,26 @@ class UserController extends Controller
 {
     public function login(Request $request)
     {
-      $email = $request->input('email');
-      $password = $request->input('password');
-      $user = User::where('email', $email)->get();
-
+      $user = User::where('email', $request->input('email'))->get();
       try {
-        if(count($user) != 0){
-          if(password_verify($password, $user[0]->password)){
-            $response = (object) array(
-              'status' => 'success',
-              'user' => $user[0]
-            );
-          } else {
-            throw new \Exception('E-mailadres/wachtwoord klopt niet');
-          }
-        } else {
-          throw new \Exception('E-mailadres/wachtwoord klopt niet');
-        }
-      } catch (\Exception $e) {
-        $response = (object) array(
-          'status' => 'error',
-          'error' => $e->getMessage()
-        );
+        if(count($user) == 0)
+          throw new \Exception('E-mailadres/wachtwoord klopt niet.');
+        if(!password_verify($request->input('password'), stripslashes($user[0]->password)))
+          throw new \Exception('E-mailadres/wachtwoord klopt niet.');
+        // $response = (object) array('status' => 'success', 'user' => $user[0]);
+        $response = (object) array('status' => 'success');
+        session(['user' => $user[0]]);
+        error_log(session('user'));
+        // $request->session()->put('user', $user[0]);
+      } catch(\Exception $e){
+        $response = (object) array('status' => 'error', 'error' => $e->getMessage());
       }
-
       return json_encode($response);
+    }
+
+    public function logout(Request $request)
+    {
+      $request->session->forget('user');
+      return redirect('home');
     }
 }

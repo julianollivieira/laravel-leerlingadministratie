@@ -19,4 +19,7 @@ use App\Http\Controllers\UserController;
 //     return $request->user();
 // });
 
-Route::post('/login', [UserController::class, 'login']);
+Route::group(['middleware' => ['web']], function () {
+  Route::post('/login', [UserController::class, 'login']);
+  Route::post('/logout', [UserController::class, 'logout']);
+});

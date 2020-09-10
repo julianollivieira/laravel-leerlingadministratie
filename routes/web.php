@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    error_log(session('user'));
+    return view('home', ['user' => session('user')]);
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('login', ['user' => session('user')]);
 });

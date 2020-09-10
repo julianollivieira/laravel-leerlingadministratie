@@ -1921,11 +1921,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      version: Vue.version
+      vue_version: Vue.version
     };
+  },
+  props: {
+    laravel_version: String
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2030,11 +2036,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       version: Vue.version
     };
+  },
+  props: {
+    user: String
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -19700,7 +19710,13 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
-            _vm._v("Vue version " + _vm._s(_vm.version))
+            _vm._v("\n          Vue version " + _vm._s(_vm.vue_version) + " "),
+            _c("br"),
+            _vm._v(
+              "\n          Laravel build v" +
+                _vm._s(_vm.laravel_version) +
+                "\n        "
+            )
           ])
         ])
       ])
@@ -19864,7 +19880,34 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1)
+      _c(
+        "div",
+        {
+          staticClass: "collapse navbar-collapse",
+          attrs: { id: "navbarSupportedContent" }
+        },
+        [
+          _c("ul", { staticClass: "navbar-nav mr-auto" }),
+          _vm._v(" "),
+          _vm.user
+            ? _c(
+                "a",
+                {
+                  staticClass: "btn btn-danger",
+                  attrs: { href: "/logout", role: "button" }
+                },
+                [_vm._v("Uitloggen")]
+              )
+            : _c(
+                "a",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { href: "/login", role: "button" }
+                },
+                [_vm._v("Inloggen")]
+              )
+        ]
+      )
     ]
   )
 }
@@ -19887,30 +19930,6 @@ var staticRenderFns = [
         }
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "collapse navbar-collapse",
-        attrs: { id: "navbarSupportedContent" }
-      },
-      [
-        _c("ul", { staticClass: "navbar-nav mr-auto" }),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { href: "/login", role: "button" }
-          },
-          [_vm._v("Inloggen")]
-        )
-      ]
     )
   }
 ]
@@ -32104,7 +32123,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component('navbar', __webpack_require__(/*! ./components/NavigationbarComponent.vue */ "./resources/js/components/NavigationbarComponent.vue")["default"]);
+Vue.component('navigation-bar', __webpack_require__(/*! ./components/NavigationbarComponent.vue */ "./resources/js/components/NavigationbarComponent.vue")["default"]);
 Vue.component('loginform', __webpack_require__(/*! ./components/LoginFormComponent.vue */ "./resources/js/components/LoginFormComponent.vue")["default"]);
 var app = new Vue({
   el: '#app'

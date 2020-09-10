@@ -29,7 +29,8 @@
           </div>
         </li> -->
       </ul>
-      <a class="btn btn-primary" href="/login" role="button">Inloggen</a>
+      <a v-if="user" class="btn btn-danger" href="/logout" role="button">Uitloggen</a>
+      <a v-else class="btn btn-primary" href="/login" role="button">Inloggen</a>
     </div>
   </nav>
 </template>
@@ -40,6 +41,9 @@
       return {
         version: Vue.version,
       }
+    },
+    props: {
+      user: String,
     },
     mounted() {
       console.log('Component mounted.');
