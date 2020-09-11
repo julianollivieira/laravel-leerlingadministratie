@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login', ['user' => session('user')]);
 });
+
+Route::get('/students', function () {
+    return view('students', ['user' => session('user')]);
+});

@@ -4,7 +4,11 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('navigation-bar', require('./components/NavigationbarComponent.vue').default);
 Vue.component('loginform', require('./components/LoginFormComponent.vue').default);
+Vue.component('students-table', require('./components/StudentsTableComponent.vue').default);  
+
+import vuetify from './vuetify'
 
 const app = new Vue({
+  vuetify,
   el: '#app'
 });
