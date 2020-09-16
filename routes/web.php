@@ -22,6 +22,19 @@ Route::get('/login', function () {
     return view('login', ['user' => session('user')]);
 });
 
-Route::get('/students', function () {
-    return view('students', ['user' => session('user')]);
+
+Route::get('/studenten', function () {
+    return view('studenten', ['user' => session('user')]);
+});
+Route::get('/opleidingen', function () {
+    return view('opleidingen', ['user' => session('user')]);
+});
+Route::get('/klassen', function () {
+    return view('klassen', ['user' => session('user')]);
+});
+Route::get('/vakken', function () {
+    return view('vakken', ['user' => session('user')]);
+});
+Route::get('/resultaten', function () {
+    return view('resultaten', ['user' => session('user')]);
 });

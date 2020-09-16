@@ -11,7 +11,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/students">Studenten</a>
+          <a class="nav-link" href="/studenten">Studenten</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/opleidingen">Opleidingen</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/klassen">Klassen</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/vakken">Vakken</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/resultaten">Resultaten</a>
         </li>
         <!--
         <li class="nav-item">

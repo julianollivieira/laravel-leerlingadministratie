@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-  <students-table></students-table>
+  <studenten-tabel></studenten-tabel>
 @endsection

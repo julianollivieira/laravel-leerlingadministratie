@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\API\StudentController;
+use App\Http\Controllers\API\OpleidingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,5 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('/logout', [UserController::class, 'logout']);
 });
 
-Route::apiResource('students', StudentController::class);
+Route::apiResource('studenten', StudentController::class);
+Route::apiResource('opleidingen', OpleidingController::class);

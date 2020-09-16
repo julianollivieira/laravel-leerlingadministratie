@@ -9,6 +9,8 @@ class Opleiding extends Model
 {
     use HasFactory;
 
+    protected $table = 'opleidingen';
+
     public function schoolloopbanen()
     {
       return $this->hasMany('App\Models\Schoolloopbaan');
