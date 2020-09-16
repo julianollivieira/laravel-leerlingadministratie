@@ -11,7 +11,7 @@
   <body>
     <div id="app">
       <v-app>
-        <navigation-bar :user="{{ $user ?? 'null' }}"></navigation-bar>
+        <navigation-bar :user="{{ $user ?? 'null' }}" :croute="'{{ Request::path() }}'"></navigation-bar>
         <p>{{ $user }}</p>
         @yield('content')
       </v-app>

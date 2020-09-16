@@ -1940,6 +1940,71 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/KlassenTabelComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/KlassenTabelComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      loading: true,
+      search: '',
+      headers: [{
+        text: 'Klas',
+        align: 'start',
+        sortable: true,
+        value: 'klas'
+      }],
+      klassen: []
+    };
+  },
+  created: function created() {
+    this.initialize();
+  },
+  methods: {
+    initialize: function initialize() {
+      var _this = this;
+
+      axios.get('/api/klassen').then(function (response) {
+        _this.klassen = response.data;
+        _this.loading = false;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LoginFormComponent.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LoginFormComponent.vue?vue&type=script&lang=js& ***!
@@ -2052,25 +2117,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      version: Vue.version
+      version: Vue.version,
+      routes: [{
+        name: 'Studenten',
+        value: 'studenten'
+      }, {
+        name: 'Opleidingen',
+        value: 'opleidingen'
+      }, {
+        name: 'Klassen',
+        value: 'klassen'
+      }, {
+        name: 'Vakken',
+        value: 'vakken'
+      }, {
+        name: 'Resultaten',
+        value: 'resultaten'
+      }]
     };
   },
   props: {
-    user: String
+    user: String,
+    croute: String
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2334,6 +2405,71 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.close();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/VakkenTabelComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/VakkenTabelComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      loading: true,
+      search: '',
+      headers: [{
+        text: 'Vak',
+        align: 'start',
+        sortable: true,
+        value: 'vak'
+      }],
+      vakken: []
+    };
+  },
+  created: function created() {
+    this.initialize();
+  },
+  methods: {
+    initialize: function initialize() {
+      var _this = this;
+
+      axios.get('/api/vakken').then(function (response) {
+        _this.vakken = response.data;
+        _this.loading = false;
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -20632,6 +20768,73 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/KlassenTabelComponent.vue?vue&type=template&id=3c9e8ce2&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/KlassenTabelComponent.vue?vue&type=template&id=3c9e8ce2& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-data-table", {
+    attrs: {
+      headers: _vm.headers,
+      items: _vm.klassen,
+      search: _vm.search,
+      loading: _vm.loading
+    },
+    scopedSlots: _vm._u([
+      {
+        key: "top",
+        fn: function() {
+          return [
+            _c(
+              "v-toolbar",
+              { attrs: { flat: "", color: "white" } },
+              [
+                _c("v-toolbar-title", [_vm._v("Klassen bekijken")]),
+                _vm._v(" "),
+                _c("v-spacer"),
+                _vm._v(" "),
+                _c("v-text-field", {
+                  attrs: {
+                    "append-icon": "mdi-magnify",
+                    label: "Search",
+                    "single-line": "",
+                    "hide-details": ""
+                  },
+                  model: {
+                    value: _vm.search,
+                    callback: function($$v) {
+                      _vm.search = $$v
+                    },
+                    expression: "search"
+                  }
+                })
+              ],
+              1
+            )
+          ]
+        },
+        proxy: true
+      }
+    ])
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LoginFormComponent.vue?vue&type=template&id=6ab3315b&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LoginFormComponent.vue?vue&type=template&id=6ab3315b& ***!
@@ -20801,7 +21004,24 @@ var render = function() {
           attrs: { id: "navbarSupportedContent" }
         },
         [
-          _vm._m(1),
+          _c(
+            "ul",
+            { staticClass: "navbar-nav mr-auto" },
+            _vm._l(_vm.routes, function(route) {
+              return _c(
+                "li",
+                { class: { active: _vm.croute == route.value } },
+                [
+                  _c(
+                    "a",
+                    { staticClass: "nav-link", attrs: { href: route.value } },
+                    [_vm._v(_vm._s(route.name))]
+                  )
+                ]
+              )
+            }),
+            0
+          ),
           _vm._v(" "),
           _vm.user
             ? _c(
@@ -20845,42 +21065,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-      _c("li", { staticClass: "nav-item active" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "/studenten" } }, [
-          _vm._v("Studenten")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item active" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "/opleidingen" } }, [
-          _vm._v("Opleidingen")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item active" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "/klassen" } }, [
-          _vm._v("Klassen")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item active" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "/vakken" } }, [
-          _vm._v("Vakken")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item active" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "/resultaten" } }, [
-          _vm._v("Resultaten")
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -21184,6 +21368,73 @@ var render = function() {
               "v-btn",
               { attrs: { color: "primary" }, on: { click: _vm.initialize } },
               [_vm._v("Reset")]
+            )
+          ]
+        },
+        proxy: true
+      }
+    ])
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/VakkenTabelComponent.vue?vue&type=template&id=8acb5fc0&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/VakkenTabelComponent.vue?vue&type=template&id=8acb5fc0& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-data-table", {
+    attrs: {
+      headers: _vm.headers,
+      items: _vm.vakken,
+      search: _vm.search,
+      loading: _vm.loading
+    },
+    scopedSlots: _vm._u([
+      {
+        key: "top",
+        fn: function() {
+          return [
+            _c(
+              "v-toolbar",
+              { attrs: { flat: "", color: "white" } },
+              [
+                _c("v-toolbar-title", [_vm._v("Vakken bekijken")]),
+                _vm._v(" "),
+                _c("v-spacer"),
+                _vm._v(" "),
+                _c("v-text-field", {
+                  attrs: {
+                    "append-icon": "mdi-magnify",
+                    label: "Search",
+                    "single-line": "",
+                    "hide-details": ""
+                  },
+                  model: {
+                    value: _vm.search,
+                    callback: function($$v) {
+                      _vm.search = $$v
+                    },
+                    expression: "search"
+                  }
+                })
+              ],
+              1
             )
           ]
         },
@@ -77154,6 +77405,8 @@ Vue.component('navigation-bar', __webpack_require__(/*! ./components/Navigationb
 Vue.component('loginform', __webpack_require__(/*! ./components/LoginFormComponent.vue */ "./resources/js/components/LoginFormComponent.vue")["default"]);
 Vue.component('studenten-tabel', __webpack_require__(/*! ./components/StudentenTabelComponent.vue */ "./resources/js/components/StudentenTabelComponent.vue")["default"]);
 Vue.component('opleidingen-tabel', __webpack_require__(/*! ./components/OpleidingenTabelComponent.vue */ "./resources/js/components/OpleidingenTabelComponent.vue")["default"]);
+Vue.component('klassen-tabel', __webpack_require__(/*! ./components/KlassenTabelComponent.vue */ "./resources/js/components/KlassenTabelComponent.vue")["default"]);
+Vue.component('vakken-tabel', __webpack_require__(/*! ./components/VakkenTabelComponent.vue */ "./resources/js/components/VakkenTabelComponent.vue")["default"]);
 
 var app = new Vue({
   vuetify: _vuetify__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -77258,6 +77511,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/KlassenTabelComponent.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/KlassenTabelComponent.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _KlassenTabelComponent_vue_vue_type_template_id_3c9e8ce2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KlassenTabelComponent.vue?vue&type=template&id=3c9e8ce2& */ "./resources/js/components/KlassenTabelComponent.vue?vue&type=template&id=3c9e8ce2&");
+/* harmony import */ var _KlassenTabelComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KlassenTabelComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/KlassenTabelComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _KlassenTabelComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _KlassenTabelComponent_vue_vue_type_template_id_3c9e8ce2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _KlassenTabelComponent_vue_vue_type_template_id_3c9e8ce2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/KlassenTabelComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/KlassenTabelComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/KlassenTabelComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KlassenTabelComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./KlassenTabelComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/KlassenTabelComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KlassenTabelComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/KlassenTabelComponent.vue?vue&type=template&id=3c9e8ce2&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/KlassenTabelComponent.vue?vue&type=template&id=3c9e8ce2& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KlassenTabelComponent_vue_vue_type_template_id_3c9e8ce2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./KlassenTabelComponent.vue?vue&type=template&id=3c9e8ce2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/KlassenTabelComponent.vue?vue&type=template&id=3c9e8ce2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KlassenTabelComponent_vue_vue_type_template_id_3c9e8ce2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KlassenTabelComponent_vue_vue_type_template_id_3c9e8ce2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -77534,6 +77856,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentenTabelComponent_vue_vue_type_template_id_d14948ec___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentenTabelComponent_vue_vue_type_template_id_d14948ec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/VakkenTabelComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/VakkenTabelComponent.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _VakkenTabelComponent_vue_vue_type_template_id_8acb5fc0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VakkenTabelComponent.vue?vue&type=template&id=8acb5fc0& */ "./resources/js/components/VakkenTabelComponent.vue?vue&type=template&id=8acb5fc0&");
+/* harmony import */ var _VakkenTabelComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VakkenTabelComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/VakkenTabelComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _VakkenTabelComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _VakkenTabelComponent_vue_vue_type_template_id_8acb5fc0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _VakkenTabelComponent_vue_vue_type_template_id_8acb5fc0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/VakkenTabelComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/VakkenTabelComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/VakkenTabelComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VakkenTabelComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./VakkenTabelComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/VakkenTabelComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VakkenTabelComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/VakkenTabelComponent.vue?vue&type=template&id=8acb5fc0&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/VakkenTabelComponent.vue?vue&type=template&id=8acb5fc0& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VakkenTabelComponent_vue_vue_type_template_id_8acb5fc0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./VakkenTabelComponent.vue?vue&type=template&id=8acb5fc0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/VakkenTabelComponent.vue?vue&type=template&id=8acb5fc0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VakkenTabelComponent_vue_vue_type_template_id_8acb5fc0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VakkenTabelComponent_vue_vue_type_template_id_8acb5fc0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
